@@ -12,17 +12,21 @@ public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull(message = "First name cannot be empty!")
-    @Size(min = 1)
+
+    @NotNull() @Size(min = 1)
+    @Column(name = "firstname", length = 50)
     private String firstName;
-    @NotNull(message = "Middle name cannot be empty!")
-    @Size(min = 1)
+
+    @NotNull() @Size(min = 1)
+    @Column(name = "middlename", length = 100)
     private String middleName;
-    @NotNull(message = "Last name cannot be empty!")
-    @Size(min = 1)
+
+    @NotNull() @Size(min = 1)
+    @Column(name = "lastname", length = 50)
     private String lastName;
-    @NotNull(message = "Phone cannot be empty!")
-    @Pattern(regexp = "^[1-9]\\d{10}$")
+
+    @NotNull() @Pattern(regexp = "^[1-9]\\d{10}$")
+    @Column(name = "phonenum", length = 15)
     private String phoneNum;
 
     @OneToMany(mappedBy = "Patient",
@@ -50,7 +54,7 @@ public class Patient {
         return firstName;
     }
 
-    public void setFirstName(@NotNull String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
@@ -58,7 +62,7 @@ public class Patient {
         return middleName;
     }
 
-    public void setMiddleName(@NotNull String middleName) {
+    public void setMiddleName(String middleName) {
         this.middleName = middleName;
     }
 
@@ -66,7 +70,7 @@ public class Patient {
         return lastName;
     }
 
-    public void setLastName(@NotNull String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -74,7 +78,7 @@ public class Patient {
         return phoneNum;
     }
 
-    public void setPhoneNum(@NotNull String phoneNum) {
+    public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
 

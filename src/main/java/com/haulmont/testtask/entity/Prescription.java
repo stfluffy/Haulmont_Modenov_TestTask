@@ -12,8 +12,8 @@ public class Prescription {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    @Size(min = 1)
+    @NotNull @Size(min = 1, max = 2000)
+    @Column(name = "description", length = 2000)
     private String description;
 
     @NotNull
@@ -28,14 +28,14 @@ public class Prescription {
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
 
-    @NotNull
+    @NotNull @Column(name = "createdate")
     private LocalDate createDate;
 
-    @NotNull
+    @NotNull @Column(name = "validity")
     private LocalDate validity;
 
-    @NotNull
-    @Enumerated(EnumType.STRING)
+    @NotNull @Enumerated(EnumType.STRING)
+    @Column(name = "priority", length = 15)
     private Priority priority;
 
     public Prescription() {}

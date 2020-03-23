@@ -1,7 +1,7 @@
 package com.haulmont.testtask.entity;
 
 public enum Priority {
-    NORMAL(),
+    NORMAL,
     CITO,
     STATIM;
 }

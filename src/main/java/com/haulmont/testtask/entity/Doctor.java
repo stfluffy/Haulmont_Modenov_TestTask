@@ -13,20 +13,20 @@ public class Doctor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message = "First name cannot be empty!")
-    @Size(min = 1)
+    @NotNull() @Size(min = 1)
+    @Column(name = "firstname", length = 50)
     private String firstName;
 
-    @NotNull(message = "Middle name cannot be empty!")
-    @Size(min = 1)
+    @NotNull() @Size(min = 1)
+    @Column(name = "middleName", length = 100)
     private String middleName;
 
-    @NotNull(message = "Last name cannot be empty!")
-    @Size(min = 1)
+    @NotNull() @Size(min = 1)
+    @Column(name = "lastname", length = 50)
     private String lastName;
 
-    @NotNull(message = "Specialization name cannot be empty!")
-    @Size(min = 1)
+    @NotNull() @Size(min = 1)
+    @Column(name = "specialization")
     private String specialization;
 
     @OneToMany(mappedBy = "Doctor",
@@ -52,7 +52,7 @@ public class Doctor {
         return firstName;
     }
 
-    public void setFirstName(@NotNull String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
@@ -60,7 +60,7 @@ public class Doctor {
         return middleName;
     }
 
-    public void setMiddleName(@NotNull String middleName) {
+    public void setMiddleName(String middleName) {
         this.middleName = middleName;
     }
 
@@ -68,7 +68,7 @@ public class Doctor {
         return lastName;
     }
 
-    public void setLastName(@NotNull String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -76,7 +76,7 @@ public class Doctor {
         return specialization;
     }
 
-    public void setSpecialization(@NotNull String specialization) {
+    public void setSpecialization(String specialization) {
         this.specialization = specialization;
     }
 
