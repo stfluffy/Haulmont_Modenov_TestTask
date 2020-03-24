@@ -31,6 +31,7 @@ public class PatientDao extends AbstractDao<Patient> implements DaoServices<Pati
             CriteriaQuery<Patient> criteriaQuery = session.getCriteriaBuilder().createQuery(Patient.class);
             criteriaQuery.from(Patient.class);
             patient = session.createQuery(criteriaQuery).getResultList();
+            session.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

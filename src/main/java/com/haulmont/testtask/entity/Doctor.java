@@ -94,7 +94,6 @@ public class Doctor {
                 " First name = " + firstName + " |" +
                 " Middle name = " + middleName + " |" +
                 " Last name = " + lastName + " |" +
-                " Specialization = " + specialization + " |" +
-                " Prescriptions" + prescriptions +" |\n";
+                " Specialization = " + specialization + " |";
     }
 }

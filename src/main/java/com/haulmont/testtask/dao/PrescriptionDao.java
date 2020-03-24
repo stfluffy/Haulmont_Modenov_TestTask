@@ -31,6 +31,7 @@ public class PrescriptionDao extends AbstractDao<Prescription> implements DaoSer
             CriteriaQuery<Prescription> criteriaQuery = session.getCriteriaBuilder().createQuery(Prescription.class);
             criteriaQuery.from(Prescription.class);
             prescriptions = session.createQuery(criteriaQuery).getResultList();
+            session.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

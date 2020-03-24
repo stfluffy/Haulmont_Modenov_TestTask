@@ -88,7 +88,6 @@ public class Patient {
                 " First name = " + firstName + " |" +
                 " Middle name = " + middleName + " |" +
                 " Last name = " + lastName + " |" +
-                " Phone number = " + phoneNum + " |" +
-                " Prescriptions" + prescriptions +" |\n";
+                " Phone number = " + phoneNum + " |";
     }
 }

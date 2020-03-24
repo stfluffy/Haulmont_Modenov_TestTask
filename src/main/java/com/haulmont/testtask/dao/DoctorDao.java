@@ -31,6 +31,7 @@ public class DoctorDao extends AbstractDao<Doctor> implements DaoServices<Doctor
             CriteriaQuery<Doctor> criteriaQuery = session.getCriteriaBuilder().createQuery(Doctor.class);
             criteriaQuery.from(Doctor.class);
             doctors = session.createQuery(criteriaQuery).getResultList();
+            session.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
