@@ -29,7 +29,7 @@ public class Patient {
     @Column(name = "phonenum", length = 15)
     private String phoneNum;
 
-    @OneToMany(mappedBy = "Patient",
+    @OneToMany(mappedBy = "patient",
             fetch = FetchType.LAZY,
             cascade = CascadeType.REFRESH)
     private List<Prescription> prescriptions;

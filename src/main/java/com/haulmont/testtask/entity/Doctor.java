@@ -29,7 +29,7 @@ public class Doctor {
     @Column(name = "specialization")
     private String specialization;
 
-    @OneToMany(mappedBy = "Doctor",
+    @OneToMany(mappedBy = "doctor",
             fetch = FetchType.LAZY,
             cascade = CascadeType.REFRESH)
     private List<Prescription> prescriptions;
