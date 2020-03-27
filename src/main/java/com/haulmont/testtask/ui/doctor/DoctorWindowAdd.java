@@ -27,6 +27,8 @@ public class DoctorWindowAdd extends Window {
         setContent(mainLayoutContent());
     }
 
+    // Creates the main layout of the window.
+    // Configures and adds components to the layout.
     private VerticalLayout mainLayoutContent() {
         VerticalLayout mainLayout = new VerticalLayout();
         mainLayout.setWidthFull();
@@ -50,6 +52,7 @@ public class DoctorWindowAdd extends Window {
         addButton.addStyleNames(ValoTheme.BUTTON_FRIENDLY);
         addButton.setWidthFull();
 
+        // Validation of each form.
         Binder<Doctor> binder = new Binder<>();
 
         binder.forField(firstNameTextField)
@@ -67,6 +70,7 @@ public class DoctorWindowAdd extends Window {
                 .withValidator(new BeanValidator(Doctor.class, "specialization"))
                 .bind(Doctor::getSpecialization, Doctor::setSpecialization);
 
+        // Сlick listener: if the data validation is successful -> add the data.
         addButton.addClickListener(event -> {
             if (binder.isValid()) {
                 Doctor addDoctor = new Doctor(firstNameTextField.getValue(), middleNameTextField.getValue(),
@@ -84,6 +88,7 @@ public class DoctorWindowAdd extends Window {
         return addButton;
     }
 
+    // Button to cancel and close the update window.
     private Component cancelButtonWindow() {
         Button cancelButton = new Button("Cancel");
         cancelButton.addStyleNames(ValoTheme.BUTTON_DANGER);

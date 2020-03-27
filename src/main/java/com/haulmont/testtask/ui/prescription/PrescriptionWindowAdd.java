@@ -34,7 +34,7 @@ public class PrescriptionWindowAdd extends Window {
                                  DaoServices<Prescription> services) {
         this.dataProvider = dataProvider;
         this.prescriptionServices = services;
-        setWidth("400px");
+        setWidth("500px");
         setHeight("650px");
         setCaption("Add");
         setModal(true);
@@ -43,6 +43,8 @@ public class PrescriptionWindowAdd extends Window {
         setContent(mainLayoutContent());
     }
 
+    // Creates the main layout of the window.
+    // Configures and adds components to the layout.
     private VerticalLayout mainLayoutContent() {
         VerticalLayout mainLayout = new VerticalLayout();
         mainLayout.setWidthFull();
@@ -81,6 +83,7 @@ public class PrescriptionWindowAdd extends Window {
         addButton.addStyleNames(ValoTheme.BUTTON_FRIENDLY);
         addButton.setWidthFull();
 
+        // Validation of each form.
         Binder<Prescription> binder = new Binder<>();
 
         binder.forField(description)
@@ -109,6 +112,7 @@ public class PrescriptionWindowAdd extends Window {
                         LocalDate.now(), LocalDate.now().plusYears(5)))
                 .bind(Prescription::getValidity, Prescription::setValidity);
 
+        // Сlick listener: if the data validation is successful -> add the data.
         addButton.addClickListener(event -> {
             if(binder.isValid()) {
                 Prescription prescription = new Prescription(description.getValue(),
@@ -126,6 +130,7 @@ public class PrescriptionWindowAdd extends Window {
         return addButton;
     }
 
+    // Button to cancel and close the update window.
     private Component cancelButtonWindow() {
         Button cancelButton = new Button("Cancel");
         cancelButton.addStyleNames(ValoTheme.BUTTON_DANGER);

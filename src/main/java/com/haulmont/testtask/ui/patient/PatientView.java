@@ -32,6 +32,7 @@ public class PatientView extends VerticalLayout {
         grid.setDataProvider(dataProvider);
     }
 
+    // Buttons layout.
     private void configurationHeader() {
         HorizontalLayout headerLayout = new HorizontalLayout();
 
@@ -41,6 +42,7 @@ public class PatientView extends VerticalLayout {
         addComponent(headerLayout);
     }
 
+    // Data filtering.
     private Component searchComponent() {
         TextField textField = new TextField();
         textField.setPlaceholder("Search by name...");
@@ -53,6 +55,7 @@ public class PatientView extends VerticalLayout {
         return textField;
     }
 
+    // Add button: opens the add window.
     private Component addButtonComponent() {
         Button button = new Button("Add");
         button.addStyleNames(ValoTheme.BUTTON_PRIMARY, ValoTheme.BUTTON_SMALL);
@@ -60,6 +63,8 @@ public class PatientView extends VerticalLayout {
         return button;
     }
 
+    // Update selected row button: check if the selected row is checked,
+    // if so, opens the update window.
     private Component updateButtonComponent() {
         Button button = new Button("Update");
         button.addStyleNames(ValoTheme.BUTTON_PRIMARY, ValoTheme.BUTTON_SMALL);
@@ -79,6 +84,8 @@ public class PatientView extends VerticalLayout {
         return button;
     }
 
+    // Delete selected row button: check if the selected row is checked,
+    // if so, delete the data and updates the table.
     private Component deleteButtonComponent() {
         Button button = new Button("Delete");
         button.addStyleNames(ValoTheme.BUTTON_DANGER, ValoTheme.BUTTON_SMALL);

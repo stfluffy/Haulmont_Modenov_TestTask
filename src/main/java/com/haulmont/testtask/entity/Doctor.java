@@ -25,7 +25,7 @@ public class Doctor {
     private String lastName;
 
     @NotNull() @Size(min = 1)
-    @Column(name = "specialization")
+    @Column(name = "specialization", length = 100)
     private String specialization;
 
     @OneToMany(mappedBy = "doctor",

@@ -31,6 +31,8 @@ public class PatientWindowUpdate extends Window {
         setContent(mainLayoutContent());
     }
 
+    // Creates the main layout of the window.
+    // Configures and adds components to the layout.
     private VerticalLayout mainLayoutContent() {
         VerticalLayout mainLayout = new VerticalLayout();
         mainLayout.setWidthFull();
@@ -54,6 +56,7 @@ public class PatientWindowUpdate extends Window {
         updateButton.addStyleNames(ValoTheme.BUTTON_FRIENDLY);
         updateButton.setWidthFull();
 
+        // Validation of each form.
         Binder<Patient> binder = new Binder<>();
 
         binder.forField(firstNameTextField).withValidator(new BeanValidator(Patient.class, "firstName"))
@@ -70,6 +73,7 @@ public class PatientWindowUpdate extends Window {
 
         binder.readBean(patientUpdate);
 
+        // Сlick listener: if the data validation is successful -> update the data.
         updateButton.addClickListener(event -> {
             if(binder.isValid()) {
                 try {
@@ -89,6 +93,7 @@ public class PatientWindowUpdate extends Window {
         return updateButton;
     }
 
+    // Button to cancel and close the update window.
     private Component cancelButtonWindow() {
         Button cancelButton = new Button("Cancel");
         cancelButton.addStyleNames(ValoTheme.BUTTON_DANGER);

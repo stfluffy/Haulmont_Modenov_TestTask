@@ -27,6 +27,8 @@ public class PatientWindowAdd extends Window {
         setContent(mainLayoutContent());
     }
 
+    // Creates the main layout of the window.
+    // Configures and adds components to the layout.
     private VerticalLayout mainLayoutContent() {
         VerticalLayout mainLayout = new VerticalLayout();
         mainLayout.setWidthFull();
@@ -50,6 +52,7 @@ public class PatientWindowAdd extends Window {
         addButton.addStyleNames(ValoTheme.BUTTON_FRIENDLY);
         addButton.setWidthFull();
 
+        // Validation of each form.
         Binder<Patient> binder = new Binder<>();
         binder.forField(firstNameTextField)
                 .withValidator(new BeanValidator(Patient.class, "firstName"))
@@ -67,6 +70,7 @@ public class PatientWindowAdd extends Window {
                 .withValidator(new BeanValidator(Patient.class, "phoneNum"))
                 .bind(Patient::getPhoneNum, Patient::setPhoneNum);
 
+        // Сlick listener: if the data validation is successful -> add the data.
         addButton.addClickListener(event -> {
             if(binder.isValid()) {
                 Patient addPatient = new Patient(firstNameTextField.getValue(), middleNameTextField.getValue(),
@@ -82,6 +86,7 @@ public class PatientWindowAdd extends Window {
         return addButton;
     }
 
+    // Button to cancel and close the update window.
     private Component cancelButtonWindow() {
         Button cancelButton = new Button("Cancel");
         cancelButton.addStyleNames(ValoTheme.BUTTON_DANGER);

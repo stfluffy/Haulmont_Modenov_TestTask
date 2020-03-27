@@ -45,6 +45,8 @@ public class PrescriptionWindowUpdate extends Window {
         setContent(mainLayoutContent());
     }
 
+    // Creates the main layout of the window.
+    // Configures and adds components to the layout.
     private VerticalLayout mainLayoutContent() {
         VerticalLayout mainLayout = new VerticalLayout();
         mainLayout.setWidthFull();
@@ -83,6 +85,7 @@ public class PrescriptionWindowUpdate extends Window {
         updateButton.addStyleNames(ValoTheme.BUTTON_FRIENDLY);
         updateButton.setWidthFull();
 
+        // Validation of each form.
         Binder<Prescription> binder = new Binder<>();
 
         binder.forField(description)
@@ -113,6 +116,7 @@ public class PrescriptionWindowUpdate extends Window {
 
         binder.readBean(prescription);
 
+        // Сlick listener: if the data validation is successful -> update the data.
         updateButton.addClickListener(event -> {
            if (binder.isValid()) {
                try {
@@ -132,6 +136,7 @@ public class PrescriptionWindowUpdate extends Window {
         return updateButton;
     }
 
+    // Button to cancel and close the update window.
     private Component cancelButtonWindow() {
         Button cancelButton = new Button("Cancel");
         cancelButton.addStyleNames(ValoTheme.BUTTON_DANGER);
