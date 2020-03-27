@@ -1,6 +1,5 @@
 package com.haulmont.testtask.entity;
 
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -90,10 +89,11 @@ public class Doctor {
 
     @Override
     public String toString() {
-        return "Doctor: " + "id = " + id + " |" +
-                " First name = " + firstName + " |" +
-                " Middle name = " + middleName + " |" +
-                " Last name = " + lastName + " |" +
-                " Specialization = " + specialization + " |";
+        return id + ":  "
+                + firstName + " "
+                + middleName + " "
+                + lastName + " "
+                + "| " + specialization + " |";
+
     }
 }

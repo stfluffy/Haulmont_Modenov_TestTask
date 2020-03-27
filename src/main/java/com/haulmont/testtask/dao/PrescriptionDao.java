@@ -1,12 +1,11 @@
 package com.haulmont.testtask.dao;
 
-import com.haulmont.testtask.dao.hibernate.until.HibernateSessionFactory;
-import com.haulmont.testtask.entity.Prescription;
-import org.hibernate.Session;
-
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.ArrayList;
 import java.util.List;
+import com.haulmont.testtask.dao.hibernate.until.HibernateSessionFactory;
+import com.haulmont.testtask.entity.Prescription;
+import org.hibernate.Session;
 
 public class PrescriptionDao extends AbstractDao<Prescription> implements DaoServices<Prescription> {
 

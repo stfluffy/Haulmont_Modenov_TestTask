@@ -7,7 +7,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
-
 public class HibernateSessionFactory {
     private static SessionFactory sessionFactory;
 
@@ -16,6 +15,7 @@ public class HibernateSessionFactory {
         cfg.addAnnotatedClass(Patient.class);
         cfg.addAnnotatedClass(Doctor.class);
         cfg.addAnnotatedClass(Prescription.class);
+
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
                 .applySettings(cfg.getProperties());
         sessionFactory = cfg.buildSessionFactory(builder.build());

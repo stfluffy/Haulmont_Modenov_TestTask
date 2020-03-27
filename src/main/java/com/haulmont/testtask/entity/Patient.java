@@ -82,12 +82,20 @@ public class Patient {
         this.phoneNum = phoneNum;
     }
 
+    public List<Prescription> getPrescriptions() {
+        return prescriptions;
+    }
+
+    public void setPrescriptions(List<Prescription> prescriptions) {
+        this.prescriptions = prescriptions;
+    }
+
     @Override
     public String toString() {
-        return "Patient: " + "id = " + id + " |" +
-                " First name = " + firstName + " |" +
-                " Middle name = " + middleName + " |" +
-                " Last name = " + lastName + " |" +
-                " Phone number = " + phoneNum + " |";
+        return  id + ":  "
+                + firstName + " "
+                + middleName + " "
+                + lastName + " "
+                + phoneNum;
     }
 }
